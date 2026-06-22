@@ -1,82 +1,48 @@
-Desligar PC – Agendador de Desligamento e Reinício
+# Desligar PC
 
-Ferramenta em Python com interface gráfica para agendar o desligamento ou reinício do computador, permitindo:
+Ferramenta com interface gráfica (Tkinter) para agendar o desligamento ou reinício do Windows — manualmente ou de forma automática e recorrente.
 
-Definir um horário específico
+## Funcionalidades
 
-Definir uma contagem regressiva
+**Aba Manual**
+- Desligar ou reiniciar em um horário definido (HH:MM)
+- Desligar ou reiniciar por contagem regressiva (HH:MM a partir de agora)
+- Atalho rápido para desligar às 22:00
+- Cancelar um desligamento/reinício agendado
 
-Escolher entre desligar ou reiniciar
+**Aba Automático**
+- Agendar um desligamento recorrente, em horário fixo, nos dias da semana selecionados
+- Funciona criando um pequeno script na pasta de Inicialização do Windows, executado a cada login
+- Pode ser desativado a qualquer momento
 
-Projeto voltado para automação simples em ambiente Windows.
+> ℹ️ **Nota:** o recurso automático depende da associação de arquivos `.pyw` no Windows estar configurada para executar com `pythonw.exe`, o que é o padrão em instalações comuns do Python. Testado com sucesso após login/reinicialização. Se no seu sistema essa associação tiver sido alterada (por exemplo, por outro editor/IDE configurado como app padrão para `.pyw`), o script não será executado — nesse caso, uma alternativa é registrar a tarefa diretamente no Agendador de Tarefas do Windows (`schtasks`).
 
-Funcionalidades
+## Requisitos
 
-Interface gráfica (Tkinter)
+- Windows
+- Python 3.10 ou superior
+- Nenhuma dependência externa — usa apenas a biblioteca padrão (`tkinter`, `subprocess`, `datetime`, `os`)
 
-Agendamento por:
+## Como usar
 
-Horário definido (HH:MM)
-
-Contagem regressiva (horas e minutos)
-
-Ações disponíveis:
-
-Desligar o computador
-
-Reiniciar o computador
-
-Cálculo automático do tempo restante
-
-Validação básica de entradas
-
-Requisitos
-
-Python 3.10 ou superior
-
-Sistema operacional: Windows
-
-Bibliotecas utilizadas:
-
-tkinter (padrão do Python)
-
-time
-
-os
-
-datetime
-
-Como executar
-
-Clone o repositório:
-
-git clone https://github.com/Luckstax/Desligar_pc
-
-
-Acesse a pasta do projeto:
-
+```bash
+git clone https://github.com/Luckstax/desligar-pc.git
 cd desligar-pc
+python desligar_pc.pyw
+```
 
+Ou dê duplo clique em `desligar_pc.pyw` no Explorador de Arquivos (não abre uma janela de console).
 
-Execute o programa:
+## Estrutura do projeto
 
-python src/desligar_pc.py
-
-Estrutura do projeto
+```
 desligar-pc/
-│
-├─ src/
-│   └─ desligar_pc.py
-│
-├─ legacy/
-│   └─ desligar_pc_v1.py
-│
-├─ README.md
-├─ requirements.txt
-└─ .gitignore
+├── desligar_pc.pyw
+├── README.md
+├── LICENSE
+└── .gitignore
+```
 
-Observações
+## Licença
 
-A pasta legacy/ contém a versão 1.0 do projeto, mantida apenas para fins de histórico.
-
-A versão principal e recomendada é a 2.0, localizada em src/.
+Este projeto está sob a licença MIT — veja o arquivo [LICENSE](LICENSE) para detalhes.
