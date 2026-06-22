@@ -50,7 +50,7 @@ Como executar
 
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/desligar-pc.git
+git clone https://github.com/Luckstax/Desligar_pc
 
 
 Acesse a pasta do projeto:
